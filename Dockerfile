@@ -4,6 +4,8 @@ FROM php:7.1.3-fpm
 #    debconf: unable to initialize frontend: Dialog
 ENV DEBIAN_FRONTEND noninteractive
 
+MAINTAINER Mark Schenzle <markseisler@gmail.com>
+
 WORKDIR "/"
 
 COPY start.sh /start.sh
