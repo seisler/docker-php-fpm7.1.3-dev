@@ -20,7 +20,6 @@ COPY cli/php.ini /etc/php/7.1/cli/php.ini
 # xdebug
 COPY xdebug/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 COPY xdebug/xdebug-2.5.3.tgz /xdebug-2.5.3.tgz
-COPY xdebug/xdebug.sh /xdebug.sh
 
 RUN echo "\nexport TERM=xterm" >> /etc/bash.bashrc \
  && apt-get update && apt-get install -y --no-install-recommends \
@@ -42,8 +41,17 @@ RUN apt-key adv --keyserver keys.gnupg.net --recv-keys 7E3F070089DF5277 \
     tar \
  && rm -rf /var/lib/apt/lists/*
 
+
 # xdebug installation
-RUN chmod +x /xdebug.sh && /xdebug.sh
+RUN tar -xf /xdebug-2.5.3.tgz \
+ && cd xdebug-2.5.3 \
+ && phpize \
+ && ./configure \
+ && make && make install \
+ && rm -rf xdebug-2.5.3 \
+    /xdebug-2.5.3 \
+    /xdebug-2.5.3.tgz \
+    /xdebug.sh
 
 EXPOSE 9000
 
