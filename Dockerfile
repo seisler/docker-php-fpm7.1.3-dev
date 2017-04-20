@@ -13,12 +13,6 @@ COPY start.sh /start.sh
 # composer
 COPY composer/composer /usr/local/bin/composer
 
-# php
-COPY pool.d/www.conf /etc/php/7.1/fpm/pool.d/www.conf
-COPY php.ini /etc/php/7.1/fpm/php.ini
-COPY php.ini /usr/local/etc/php/php.ini
-COPY cli/php.ini /etc/php/7.1/cli/php.ini
-
 # extra packages
 RUN echo "\nexport TERM=xterm" >> /etc/bash.bashrc \
  && apt-get update && apt-get install -y --no-install-recommends \
@@ -43,7 +37,6 @@ RUN apt-key adv --keyserver keys.gnupg.net --recv-keys 7E3F070089DF5277 \
 # xdebug installation
 COPY xdebug/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 COPY xdebug/xdebug-2.5.3.tgz /xdebug-2.5.3.tgz
-
 RUN tar -xf /xdebug-2.5.3.tgz \
  && cd xdebug-2.5.3 \
  && phpize \
