@@ -23,8 +23,7 @@ deb http://packages.dotdeb.org jessie all\n\
 deb-src http://packages.dotdeb.org jessie all\n'\
 >> /etc/apt/sources.list
 
-RUN apt-key adv --keyserver keys.gnupg.net --recv-keys 7E3F070089DF5277 \
- && apt-get update && apt-get install -y --no-install-recommends \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     zip \
     unzip \
     git-core \
