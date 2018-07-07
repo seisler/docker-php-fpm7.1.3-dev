@@ -1,4 +1,4 @@
-FROM php:7.1.3-fpm
+FROM php:7.2-fpm
 
 # Get noninteractive frontend for Debian to avoid some problems:
 #    debconf: unable to initialize frontend: Dialog
@@ -32,7 +32,6 @@ RUN apt-key adv --keyserver keys.gnupg.net --recv-keys 7E3F070089DF5277 \
     telnet \
     tar \
  && rm -rf /var/lib/apt/lists/*
-
 
 # xdebug installation
 COPY xdebug/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini

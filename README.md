@@ -1,8 +1,8 @@
-# docker-php-fpm7.1.3-dev
+# docker-php-fpm7.2-dev
 
-PHP-FPM 7.1.3 Docker Image for develop environment. Uses the Php Official image.
+PHP-FPM 7.2 Docker Image for develop environment. Uses the Php Official image.
 
-- Xdebug for php 7.1 is installed.
+- Xdebug for php 7.2 is installed.
 - Composer installed globally.
 
 Extra Packages:
