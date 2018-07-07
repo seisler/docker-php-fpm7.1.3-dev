@@ -33,16 +33,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
  && rm -rf /var/lib/apt/lists/*
 
 # xdebug installation
-COPY xdebug/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
-COPY xdebug/xdebug-2.5.3.tgz /xdebug-2.5.3.tgz
-RUN tar -xf /xdebug-2.5.3.tgz \
- && cd xdebug-2.5.3 \
- && phpize \
- && ./configure \
- && make && make install \
- && rm -rf xdebug-2.5.3 \
-    /xdebug-2.5.3 \
-    /xdebug-2.5.3.tgz
+#COPY xdebug/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+#COPY xdebug/xdebug-2.5.3.tgz /xdebug-2.5.3.tgz
+#RUN tar -xf /xdebug-2.5.3.tgz \
+# && cd xdebug-2.5.3 \
+# && phpize \
+# && ./configure \
+# && make && make install \
+# && rm -rf xdebug-2.5.3 \
+#    /xdebug-2.5.3 \
+#    /xdebug-2.5.3.tgz
 
 EXPOSE 9000
 
