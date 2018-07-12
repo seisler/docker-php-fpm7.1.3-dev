@@ -32,6 +32,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     tar \
  && rm -rf /var/lib/apt/lists/*
 
+# install pdo and mysql extensions
+RUN docker-php-ext-install pdo pdo_mysql
+
 # xdebug installation
 #COPY xdebug/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 #COPY xdebug/xdebug-2.5.3.tgz /xdebug-2.5.3.tgz
